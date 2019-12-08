@@ -1,2 +1,38 @@
 1.9 String Rotation--String Rotation; Assume you have a method isSubst ring which checks if one word is a substring of another. Given two strings, si and s2, write code to check if s2 is a rotation of si using only one call to isSubst ring [e.g., "water bottle" is a rotation oP'erbottlewat"),
 
+
+//on paper don't write main.
+#include<iostream>
+using namespace std;
+int isSubstring(string s1,string s2,int n1,int n2)
+{
+    if(n1==0) return 0;
+    if(n2==0) return 1;
+    if(s1[n1-1]==s2[n2-1])
+    return isSubstring(s1,s2,n1-1,n2-1);
+    else
+    return isSubstring(s1,s2,n1-1,n2);
+}
+int main()
+{
+    /*char arr1[]="krishna";
+    char arr2[14]={'\0'};
+    arr2=arr1+arr1;*/
+    string s1="krishna";
+    string s2="nhhhha";
+    string s3;
+    s3=s1+s1;
+   // cout<<s2;
+    int n1,n2;
+    n1=s1.length();
+    n2=s2.length();
+    s1=s3;
+   
+    if(isSubstring(s1,s2,n1,n2))
+    cout<<"yes";
+    else 
+    cout<<"no";
+    
+    
+    return 0;
+}
