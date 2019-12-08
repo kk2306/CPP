@@ -1,0 +1,58 @@
+One Away: There are three types of edits that can be performed on strings: insert a character, 
+remove a character, or replace a character. Given two strings, write a function to check if they are one edit (or zero edits) away. 
+EXAMPLE pale, ple -> true pales, pale -> true pale, bale -> true pale, bake -> false 
+
+
+
+#include<iostream>
+using namespace std;
+bool Edit(string s1,string s2)
+{
+   int m=s1.length();
+   int n=s2.length();
+    if(abs(n-m)>1)
+    return false;
+    
+    int count=0;
+    int i=0,j=0;
+    while(i<m&&j<n)
+    {
+        if (s1[i] != s2[j]) 
+        { 
+            if (count == 1) 
+                return false; 
+
+            if (m > n) 
+                i++; 
+            else if (m< n) 
+                j++; 
+            else 
+            { 
+                i++; 
+                j++; 
+            }       
+            
+            count++; 
+        } 
+  
+        else 
+        { 
+            i++; 
+            j++; 
+        } 
+        
+    }
+    
+}
+
+int main()
+{
+    string s1="krishna";
+    string s2="hna";
+    if(Edit(s1,s2))
+    cout<<"yes";
+    else 
+    cout<<"no";
+   
+    return 0;
+}
