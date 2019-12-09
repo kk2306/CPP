@@ -1,0 +1,49 @@
+1.3....URLify: Write a method to replace all spaces in a string with '%20'. You may assume that the string
+has sufficient space at the end to hold the additional characters, and that you are given the "true"
+length of the string. (Note: If implementing in Java, please use a character array so that you can
+perform this operation in place.)
+EXAMPLE
+Input: "Mr 3ohn S m i t h 13
+Output: "Mr%203ohn%20Smith
+
+-----------------
+#include<iostream>
+using namespace std;
+void URlify(string s)
+{
+    int n=s.length();
+    int count=0;
+    int i=0;
+    int j=0;
+    if(s[i]==' ')
+        count++;
+    int p=n+3*count;
+    char ur[p];
+    i=0;
+    while(s[i]!='\0')
+    {   
+        if(s[i]==' ')
+        {
+            
+            ur[j]='%';
+            ur[++j]='2';
+            ur[++j]='0';j++;i++;
+        }
+        else
+            {
+                ur[j]=s[i];
+                ++i;++j;
+            }
+    }
+      cout<<"new string is "<<ur;
+        
+}
+
+int main()
+{
+    string s="kri kumar tripathi";
+    cout<<"old stri is  "<<s<<endl;
+    //ps how to remove starting and trailing spaces.
+    URlify(s);
+    return 0;
+}
